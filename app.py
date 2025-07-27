@@ -41,7 +41,7 @@ def edit_transaction(transaction_id):
     
     for tran in transactions:
             if tran['id'] == transaction_id:
-                return render_template('edit.html', tran)
+                return render_template('edit.html', transaction=tran)
 
     return {'message': 'Transaction not found'}, 404
 
