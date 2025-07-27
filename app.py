@@ -51,8 +51,10 @@ def delete_transaction(transaction_id):
         if tran['id'] == transaction_id:
             transactions.remove(tran)
             return redirect(url_for('get_transactions'))
-            
+
     return {'message': 'Transaction not found'}, 404
 
-# Run the Flask app
+if __name__ == '__main__':
+    app.run(debug=True)
+
     
