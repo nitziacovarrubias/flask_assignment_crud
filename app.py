@@ -45,7 +45,14 @@ def edit_transaction(transaction_id):
 
     return {'message': 'Transaction not found'}, 404
 
-# Delete operation
+@app.route('/delete/<int:transaction_id>', method='DELETE')
+def delete_transaction(transaction_id):
+    for tran in transactions:
+        if tran['id'] == transaction_id:
+            transactions.remove(tran)
+            return redirect(url_for('get_transactions'))
+            
+    return {'message': 'Transaction not found'}, 404
 
 # Run the Flask app
     
