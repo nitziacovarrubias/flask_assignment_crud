@@ -28,8 +28,8 @@ def add_transaction():
 @app.route('/edit/<int:transaction_id>', methods=['GET', 'POST'])
 def edit_transaction(transaction_id):
     if request.method == 'POST':
-        date = 'date': request.form['date']
-        amount = 'amount': float(request.form['amount'])
+        date = request.form['date']
+        amount = float(request.form['amount'])
 
         for tran in transactions:
             if tran['id'] == transaction_id:
@@ -45,7 +45,7 @@ def edit_transaction(transaction_id):
 
     return {'message': 'Transaction not found'}, 404
 
-@app.route('/delete/<int:transaction_id>', method='DELETE')
+@app.route('/delete/<int:transaction_id>')
 def delete_transaction(transaction_id):
     for tran in transactions:
         if tran['id'] == transaction_id:
